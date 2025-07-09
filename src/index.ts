@@ -51,5 +51,7 @@ export { AbstractLogger, LogConfig, PlatformUtils, LOG_LEVEL };
 export { is } from './bit/logic.js';
 export { DateUtils } from './date/date-utils.js';
 export { toId } from './utils';
+export { Lock } from './utils/lock';
+export { Queue } from './collections/fifo.js';
 export { base16Decode, base64Decode, toBase64, toHex } from './bit/data-codec.js';
-export { generateKey, importKey, encrypt, decrypt, hmacSign, hmacVerify, deriveKey } from './crypto';
+export { generateKey, importKey, encrypt, decrypt, hmacSign, hmacVerify, deriveKey, sha256 } from './crypto';

@@ -113,3 +113,14 @@ export async function generateKey() {
     'decrypt'
   ]);
 }
+
+export async function sha256(message:string): Promise<ArrayBuffer> {
+  // Encode as UTF-8
+  const encoder = new TextEncoder();
+  const data = encoder.encode(message);
+
+  // Hash the message
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  
+  return hashBuffer;
+}
