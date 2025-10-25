@@ -31,6 +31,7 @@ type DeriveKeyConfig = {
   keyAlg: string;
   keyLen: number;
 }
+
 const DEFAULT_DERIVE_CONFIG:DeriveKeyConfig = {
   name: 'PBKDF2',
   iterations: 100_000,
@@ -38,6 +39,7 @@ const DEFAULT_DERIVE_CONFIG:DeriveKeyConfig = {
   keyAlg: 'AES-GCM',
   keyLen: 256
 };
+
 export async function deriveKey(password: string, salt: Uint8Array, config?: Partial<DeriveKeyConfig>) {
   const { name, iterations, hash, keyAlg, keyLen } = { ...DEFAULT_DERIVE_CONFIG, ...config };
   const enc = new TextEncoder();
