@@ -14,7 +14,6 @@ export function toHex(buffer: Uint8Array) {
  * @param {Uint8Array} buffer The input buffer to encode.
  * @returns {string} The base64 encoded string.
  */
-
 export function toBase64(buffer: Uint8Array) {
   let s = '';
   for (let i = 0; i < buffer.length; i ++) {

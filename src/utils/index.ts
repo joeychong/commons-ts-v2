@@ -60,3 +60,46 @@ export function toId(value:string, config: {
 
   return id.replace(/_$/, '');
 }
+
+export function toAlias(input: string, def = 'k'): string {
+  if (input.trim().length === 0) {
+    return def;
+  }
+  // replace underscores with space, split camel boundaries
+  const normalized = input.trim().replace(/_/g, ' ');
+  const spaced = normalized.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+  const words = spaced.split(/\s+/).filter(Boolean);
+
+  // If no words (e.g. punctuation), fallback to the first char
+  if (words.length === 0) {
+    return (input[0] || def).toLowerCase();
+  }
+
+  // Build base: first character of each word lowercased
+  const base = words.map(w => w[0].toLowerCase()).join('');
+
+  // Ensure base is at least one character
+  return base || (input[0] || def).toLowerCase();
+}
+
+export function toAliasMap(obj: object) {
+  const m = new Map<string, string>();
+  const cm = new Map<string, number>();
+
+  const keys = Object.keys(obj);
+  for (const k of keys) {
+    const a = toAlias(k);
+    let c = cm.get(a);
+    console.log(c);
+    if (c === undefined) {
+      c = 1;
+      m.set(k, a);
+    } else {
+      c = c + 1;
+      m.set(k, a + c);
+    }
+    cm.set(a, c); 
+  }
+  return m;
+}
