@@ -1,14 +1,22 @@
 {
   "name": "@ebizzone/commons",
   "version": "1.0.0",
-  "description": "",
+  "description": "A collection of libraries which commonly used.",
+  "keywords": ["bit", "crypto", "date", "logger", "utils"],
+  "homepage": "https://github.com/joeychong/commons-ts-v2#readme",
+  "bugs": {
+    "url": "https://github.com/joeychong/commons-ts-v2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joeychong/commons-ts-v2.git"
+  },
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
