@@ -91,7 +91,6 @@ export function toAliasMap(obj: object) {
   for (const k of keys) {
     const a = toAlias(k);
     let c = cm.get(a);
-    console.log(c);
     if (c === undefined) {
       c = 1;
       m.set(k, a);
@@ -99,7 +98,7 @@ export function toAliasMap(obj: object) {
       c = c + 1;
       m.set(k, a + c);
     }
-    cm.set(a, c); 
+    cm.set(a, c);
   }
   return m;
 }
